@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock, Paper, Scissors</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+
+    //begin with a function called computerPlay that will randomly return either ‘rock’, ‘paper’ or ‘scissors’.
+    function computerPlay(){
+      //generate random integer x from [0, 1, 2].
+      let x = Math.floor(Math.random()*3);
+      switch (x){
+        case 0:
+          return 'rock';
+          break;
+        case 1: 
+          return 'paper';
+          break;
+        case 2:
+          return 'scissors';
+      }
+    } 
+    
+    // Write a function that plays a single round of Rock Paper Scissors. The function should take two parameters - playerSelection and 
+    // computerSelection - and then return a string that declares the winner of the round like: "You Lose! Paper beats Rock"
+    function playRound (playerSelection, computerSelection) {
+      if (playerSelection.toLowerCase() === computerSelection) {
+        return `You entered ${playerSelection}. The computer chose ${computerSelection}. It\'s a tie.`;
+      } 
+      else if (playerSelection.toLowerCase() === 'rock'){
+        switch (computerSelection){
+          case 'paper':
+            return `You entered rock. The computer chose Paper. You lose! Paper beats rock.`
+          case 'scissors':
+            return `You entered rock. The computer chose Scissors. You win! Rock beats scissors.`;
+        }
+      } 
+      else if (playerSelection.toLowerCase() === 'paper'){
+        switch (computerSelection){
+            case 'rock':
+              return `You entered paper. The computer chose rock. You win! Paper beats rock.`;
+            case 'scissors':
+              return `You entered paper. The computer chose scissors. You lose! Scissors beats paper.`;
+        }
+      } 
+      else if (playerSelection.toLowerCase() === 'scissors'){
+        switch (computerSelection){
+            case 'rock':
+              return `You entered scissors. The computer chose rock. You lose! Rock beats scissors.`;
+            case 'paper':
+              return `You entered scissors. The computer chose paper. You win! Scissors beats paper.`;
+        }
+      }    
+    }
+
+    //Write a function that takes the values of the current round, round result, and the scores of players
+    //and announces the state of the game to the console and popup window. 
+    function outputResult(roundNumber,roundResult, scorePlayer, scoreComp){
+      let announcement = `Round ${roundNumber}: ${roundResult} Player's score: ${scorePlayer}. Computer's score: ${scoreComp}.`
+      console.log(announcement);
+      alert(announcement);
+    }
+
+    // Write a NEW function called game(). Use previous functions inside of this one to 
+    // play a 5 round game that keeps score and reports a winner or loser at the end.
+    // Use prompt() to get input from the user.
+    // The use of a loop is recommended. you should be using console.log() to display the results of each round and the winner at the end.
+    // Use prompt() to get input from the user. Feel free to create more “helper” functions or modify previous functions.
+    // Make your function case insensitive (so users can input rock, ROCK, RocK or any other variation).
+    function game() {
+      let result;
+      let roundLim = 5;
+      let playerScore = 0;
+      let computerScore = 0;
+      let cancelMessage = 'You clicked Cancel. Game over.';
+      for (i=1; i<=roundLim; i++){
+        //Get input from player.
+        let input = (prompt(`Game ${i} of ${roundLim}:  Rock, Paper, Scissors?`)).toLowerCase();
+        //If player clicks cancel, the value of input will be null. Break out of loop to end game.
+        if (input==null){
+          console.log(cancelMessage);
+          alert(cancelMessage);
+          break; 
+        } else {
+          //The player entered a real or empty string. Validate until rock paper or scissors.
+          while (input!='rock' && input!='paper' && input!='scissors'){
+            input = (prompt(`You did not enter a valid input. Enter your choice. Rock, Paper, or Scissors?`)).toLowerCase();
+            //check again if player clicked cancel.
+            if (input==null){
+              console.log(cancelMessage);
+              alert(cancelMessage);
+              break; 
+            } 
+          }
+          //At this point input is valid. Run playRound() with it and store the output.
+          result = playRound (input, computerPlay());
+        }
+        //Update scores based on whether result contains the word 'Win' or 'Lose'.
+        if (result.includes('You win')){
+          playerScore++;
+        } else if (result.includes('You lose')){
+          computerScore++
+        }
+        //Output the result. 
+        outputResult(i, result, playerScore, computerScore);
+      }
+      //Gameover screen
+      if (playerScore==computerScore){
+        console.log('Game over. It\'s a tie.');
+        alert('Game over. It\'s a tie.');
+      } else if (playerScore>computerScore){
+        console.log('Game over. You win!');
+        alert('Game over. You win!');
+      } else if (playerScore<computerScore){
+        console.log('Game over. You lose!');
+        alert('Game over. You lose!');
+      }
+    }
+
+  </script>
+</body>
+</html>
