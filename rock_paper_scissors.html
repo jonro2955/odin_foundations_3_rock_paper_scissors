@@ -77,22 +77,25 @@
       let cancelMessage = 'You clicked Cancel. Game over.';
       for (i=1; i<=roundLim; i++){
         //Get input from player.
-        let input = (prompt(`Game ${i} of ${roundLim}:  Rock, Paper, Scissors?`)).toLowerCase();
+        let input = prompt(`Game ${i} of ${roundLim}:  Rock, Paper, Scissors?`);
         //If player clicks cancel, the value of input will be null. Break out of loop to end game.
         if (input==null){
           console.log(cancelMessage);
           alert(cancelMessage);
           break; 
         } else {
+          input = input.toLowerCase();
           //The player entered a real or empty string. Validate until rock paper or scissors.
           while (input!='rock' && input!='paper' && input!='scissors'){
-            input = (prompt(`You did not enter a valid input. Enter your choice. Rock, Paper, or Scissors?`)).toLowerCase();
+            input = prompt(`You did not enter a valid input. Enter your choice. Rock, Paper, or Scissors?`);
             //check again if player clicked cancel.
             if (input==null){
               console.log(cancelMessage);
               alert(cancelMessage);
               break; 
-            } 
+            } else {
+              input = input.toLowerCase();
+            }
           }
           //At this point input is valid. Run playRound() with it and store the output.
           result = playRound (input, computerPlay());
@@ -108,14 +111,14 @@
       }
       //Gameover screen
       if (playerScore==computerScore){
-        console.log('Game over. It\'s a tie.');
-        alert('Game over. It\'s a tie.');
+        console.log(`Game over. It\'s a ${playerScore}: ${computerScore} tie.`);
+        alert(`Game over. It\'s a ${playerScore}: ${computerScore} tie.`);
       } else if (playerScore>computerScore){
-        console.log('Game over. You win!');
-        alert('Game over. You win!');
+        console.log(`Game over. You win ${playerScore} to ${computerScore}!`);
+        alert(`Game over. You win ${playerScore} to ${computerScore}!`);
       } else if (playerScore<computerScore){
-        console.log('Game over. You lose!');
-        alert('Game over. You lose!');
+        console.log(`Game over. You lose ${playerScore} to ${computerScore}!`);
+        alert(`Game over. You lose ${playerScore} to ${computerScore}!`);
       }
     }
 
