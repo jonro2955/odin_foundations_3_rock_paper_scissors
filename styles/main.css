@@ -1,0 +1,141 @@
+body {
+  background:azure;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#gameTitle1{
+  font-size: 60px;
+  margin-top: 0px;
+  color:darkseagreen;
+}
+#gameTitle2{
+  font-size: 50px;
+  margin-top: -15px;
+  color:darkorange;
+}
+#gameTitle3{
+  font-size: 30px;
+  margin-top: -15px;
+  color:lightcoral;
+}
+.gameBoard{
+  border: 5px solid #1a73e8;
+  background-color:aquamarine;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 400px;
+  height: 200px;
+  
+}
+.boardTitle{
+  color:magenta;
+  font-weight: 900;
+  font-size: 30px;
+  margin-top: 0px;
+}
+.scoreRow{
+  display: flex;
+  align-items: center; /* horizontal */
+  flex-direction: row;
+  width: auto;
+  padding: 5px;
+  margin-top: -10px;
+}
+.scoreLabel{
+  font-size: 30px;
+  font-weight: 900;
+  margin-right: 5px;
+  color:deeppink;
+}
+.scoreBox{
+  border: 5px solid #1a73e8;
+  border-radius: 15px;
+  font-size: 30px;
+  font-weight: 900;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center; /* vertical */
+  align-items: center; /* horizontal */
+}
+.buttonRow{
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+}
+.choiceIcon{
+  height: 70px;
+  width: 70px;
+  border-radius: 10px;
+}
+.myButton{
+  border: 5px solid #1a73e8;
+  border-radius: 15px;
+  margin: 10px;
+  height: 70px;
+  width: 70px;
+}
+.myButtonAlt{
+  border: 5px solid #1a73e8;
+  border-radius: 15px;
+  margin: 10px;
+  height: 70px;
+  width: 70px;
+}
+.myButton:Hover{
+  transform: scale(1.1);
+  border-color: #ffc600;
+  box-shadow: 0 0 1rem #ffc600;
+} 
+.compButton{
+  border: 5px solid #1a73e8;
+  border-radius: 15px;
+  margin: 10px;
+  height: 70px;
+  width: 70px;
+}
+#centreDiv, .centreDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical */
+  align-items: center; /* horizontal */
+  height: 80px;
+  width: 100%;
+  color:magenta;
+  font-weight: 900;
+  font-size: 30px;
+
+}
+.buttonHover{
+  transform: scale(1.1);
+  border-color: #ffc600;
+  box-shadow: 0 0 1rem #ffc600;
+}
+#bottomHeading{
+  visibility:hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical */
+  align-items: center; /* horizontal */
+  height: 80px;
+  width: 100%;
+  color:magenta;
+  font-weight: 900;
+  font-size: 30px;
+}
+#restartButton{
+  visibility:hidden;
+  color:magenta;
+  border: 5px solid #1a73e8;
+  border-radius: 15px;
+  height: 70px;
+  width: 140px;
+  font-size: 30px;
+  font-weight: 900;
+}

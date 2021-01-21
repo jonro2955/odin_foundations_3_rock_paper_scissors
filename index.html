@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Rock, Paper, Scissors</title>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" type="text/css" href="styles/main.css">
+</head>
+<body>
+
+  <h1 id="gameTitle1">ROCK, PAPER, SCISSORS</h1>
+  <h2 id="gameTitle2">First to 5 points wins!</h2>
+  <h3 id="gameTitle3">Player: Make your selection!</h3>
+
+  <div class="gameBoard" id="humanBoard">
+    <h3 class="boardTitle">Player</h3>
+    <div class="scoreRow">
+      <div class="scoreLabel">Score:</div>
+      <div class="scoreBox" id="playerScore">0</div>
+    </div>
+    <div class="buttonRow" id="humanChoicessRow">
+      <div class="myButton" id="ROCK" data-key="r">
+        <img class="choiceIcon" src="images/rock.png">
+      </div>
+      <div class="myButton" id="PAPER" data-key="p">
+        <img class="choiceIcon" src="images/paper.png">
+      </div>
+      <div class="myButton" id="SCISSORS" data-key="s">
+        <img class="choiceIcon" src="images/scissors.png">
+      </div>
+    </div>
+  </div>
+ 
+  <div id="centreDiv">VS</div>
+ 
+  <div class="gameBoard" id="computerBoard">
+    <h3 class="boardTitle">Computer</h3>
+    <div class="scoreRow">
+      <div class="scoreLabel">Score:</div>
+      <div class="scoreBox" id="computerScore">0</div>
+    </div>
+    <div class="buttonRow" id="compChoicessRow">
+      <div class="compButton" id= "rock">
+        <img class="choiceIcon" src="images/rock.png">
+      </div>
+      <div class="compButton" id="paper">
+        <img class="choiceIcon" src="images/paper.png">
+      </div>
+      <div class="compButton" id="scissors">
+        <img class="choiceIcon" src="images/scissors.png">
+      </div>
+    </div>
+  </div>
+
+    <div id="bottomHeading">Bottom Heading</div>
+    <button id="restartButton" onclick="location.reload()">Reset</button>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
