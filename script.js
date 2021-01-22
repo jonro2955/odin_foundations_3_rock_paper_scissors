@@ -63,11 +63,13 @@ function animateComputer(computerSelection, pScore, cScore, pScoreDiv, cScoreDiv
   let i = 0; // loop index 
   const compButtonClassList = document.querySelectorAll(".compButton"); // List of buttons to highlight
   const compSelectionBtn = document.getElementById(computerSelection);  // Final button to highlight 
+  const audioBeeps = document.getElementById("beeps"); // Beep
   animate(compButtonClassList, compSelectionBtn); // Declared below
 
   function animate(classes, finalBtn) { // *Recursive loop makes setTimeout work in real time
     let num = Math.floor(Math.random()*3) // random number from 0 to 2
     highlight(classes[num]); //  highlight a random button
+    audioBeeps.play(); // Beep 
     setTimeout(()=>{ //  code to be executed after delay 
       unHighlight(classes[num]); // Un-highlight what was highlighted 
       i++; // Increment counter
@@ -88,7 +90,11 @@ function announceResult(result){
   let secondaryDelay = 300; // Blink frequency
   let i = 0; 
   let iterations = 1; 
-  const centreDiv = document.getElementById("centreDiv"); 
+  const centreDiv = document.getElementById("centreDiv");
+  const audioWin = document.getElementById("win"); // Beep
+  const audioLose = document.getElementById("lose"); // Beep 
+  const audioTie = document.getElementById("tie"); // Beep 
+
   centreDiv.textContent = result;
   centreDiv.style.visibility = "hidden";
   flashText(centreDiv); // Declared below
@@ -100,6 +106,13 @@ function announceResult(result){
         centreDiv.style.visibility = "hidden";
         setTimeout(()=>{
           centreDiv.style.visibility = "visible";
+          if (result.includes('You WIN')) { 
+            audioWin.play();
+          } else if (result.includes('You LOSE')) { 
+            audioLose.play();
+          } else if (result.includes("It's a TIE")) {
+            audioTie.play();
+          };
           setTimeout(()=>{
             centreDiv.style.visibility = "hidden";
             setTimeout(()=>{
@@ -123,9 +136,12 @@ function finalResultScreen(playerScore, computerScore){
   centreDiv.style.visibility = "hidden";
   const bottomHeading = document.getElementById("bottomHeading");
   const restartButton = document.getElementById("restartButton");
+  const audioGameOver = document.getElementById("gameOver"); // Music
+
   setTimeout(()=>{
     bottomHeading.style.visibility = "visible";
     restartButton.style.visibility = "visible";
+    audioGameOver.play();
     if (playerScore === computerScore){
       bottomHeading.textContent = `Game over. It's a ${playerScore}:${computerScore} Tie!`;
     } else if (playerScore > computerScore){
