@@ -164,7 +164,6 @@ function play(){
   const myButtons = document.querySelectorAll(".myButton");
 
   function disableMyButtons(){
-    const myButtons = document.querySelectorAll(".myButton");
     myButtons.forEach((button) => { 
       button.removeAttribute("data-key");
       button.classList.add("myButtonAlt"); // No hover
@@ -174,7 +173,6 @@ function play(){
   }
 
   function reEnableMyButtons(){
-    const myButtons = document.querySelectorAll(".myButtonAlt");
     myButtons.forEach((button) => { 
       button.classList.add("myButton");
       button.classList.remove("myButtonAlt");
@@ -204,7 +202,6 @@ function play(){
       reEnableMyButtons();
     }, 3300);
     if(playerScore === 5 || computerScore === 5){
-      // disableMyButtons();
       finalResultScreen(playerScore, computerScore);
     }
   }
