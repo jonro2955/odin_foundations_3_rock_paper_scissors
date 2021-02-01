@@ -139,3 +139,7 @@ body {
   font-size: 30px;
   font-weight: 900;
 }
+#credits{
+  text-align: center;
+  font-family: 'Courgette', cursive;
+}

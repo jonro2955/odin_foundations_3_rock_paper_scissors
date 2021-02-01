@@ -64,12 +64,12 @@ function animateComputer(computerSelection, pScore, cScore, pScoreDiv, cScoreDiv
   const compButtonClassList = document.querySelectorAll(".compButton"); // List of buttons to highlight
   const compSelectionBtn = document.getElementById(computerSelection);  // Final button to highlight 
   const audioBeeps = document.getElementById("beeps"); // Beep
+  audioBeeps.play(); // Beep 
   animate(compButtonClassList, compSelectionBtn); // Declared below
 
   function animate(classes, finalBtn) { // *Recursive loop makes setTimeout work in real time
     let num = Math.floor(Math.random()*3) // random number from 0 to 2
     highlight(classes[num]); //  highlight a random button
-    audioBeeps.play(); // Beep 
     setTimeout(()=>{ //  code to be executed after delay 
       unHighlight(classes[num]); // Un-highlight what was highlighted 
       i++; // Increment counter
@@ -106,17 +106,17 @@ function announceResult(result){
         centreDiv.style.visibility = "hidden";
         setTimeout(()=>{
           centreDiv.style.visibility = "visible";
-          if (result.includes('You WIN')) { 
-            audioWin.play();
-          } else if (result.includes('You LOSE')) { 
-            audioLose.play();
-          } else if (result.includes("It's a TIE")) {
-            audioTie.play();
-          };
           setTimeout(()=>{
             centreDiv.style.visibility = "hidden";
+            if (result.includes('You WIN')) { 
+              audioWin.play();
+            } else if (result.includes('You LOSE')) { 
+              audioLose.play();
+            } else if (result.includes("It's a TIE")) {
+              audioTie.play();
+            };
             setTimeout(()=>{
-              centreDiv.style.visibility = "visible";
+              centreDiv.style.visibility = "visible";    
             }, secondaryDelay);
           }, secondaryDelay);
         }, secondaryDelay);
