@@ -30,7 +30,7 @@ function unHighlightAllButtons(){
 function roundResult (playerSelection, computerSelection) {
   if (playerSelection.toLowerCase() === computerSelection) {
     return `Your ${playerSelection} ties with Computer's ${computerSelection.toUpperCase()}. It's a TIE.`;
-  } 
+  }
   else if (playerSelection.toLowerCase() === 'rock'){
     switch (computerSelection){
       case 'paper':
