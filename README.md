@@ -1,5 +1,7 @@
 # Rock-Paper-Scissors
-This is the third project from The Odin Project's web develpment foundations curriculum. Live version: https://jonro2955.github.io/odin_foundations_3_rock_paper_scissors/
+https://jonro2955.github.io/odin_foundations_3_rock_paper_scissors/
+
+This is the 3rd project from The Odin Project's web develpment foundations curriculum.
 
 The goal is to create a web page in html, css and javascript where the user can play rock, paper, scissors against the computer. The the first part of the project was creating a simple console version that is played by typing words on the browser dev tools command line (this part is contained in the rock_paper_scissors.html file). The second part involved using the HTML, CSS, JavaScript and DOM learned so far to create an interactive visual game webpage. 
 
