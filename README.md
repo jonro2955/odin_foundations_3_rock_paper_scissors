@@ -2,9 +2,7 @@
 
 [Live Demo](https://jonro2955.github.io/odin_foundations_3_rock_paper_scissors/)
 
-An interactive rock, paper, scissors game written in JavaScript. 
-
-The game features keyboard support using r, p, or s keys.
+An interactive rock, paper, scissors game written in JavaScript featuring keyboard support using r, p, or s keys.
 
 
 ### Focus  
