@@ -143,3 +143,6 @@ body {
   text-align: center;
   font-family: 'Courgette', cursive;
 }
+@keyframes mymove {
+  100% {transform: rotate(360deg);}
+}
